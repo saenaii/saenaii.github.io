@@ -1,0 +1,19 @@
+{
+  "name": "saenai",
+  "version": "1.0.0",
+  "author": "reco_luan",
+  "scripts": {
+    "dev": "vuepress dev . --open --host \"localhost\"",
+    "build": "vuepress build ."
+  },
+  "devDependencies": {
+    "vuepress": "^1.9.9",
+    "vuepress-theme-reco": "1.6.17"
+  },
+  "description": "",
+  "dependencies": {
+    "global": "^4.4.0",
+    "katex": "^0.16.6",
+    "markdown-it-texmath": "^1.0.0"
+  }
+}
