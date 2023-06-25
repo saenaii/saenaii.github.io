@@ -2,6 +2,10 @@
 
 set -e
 
+cd scripts
+go run gen-reading-list.go
+cd -
+
 yarn run build
 
 cd public
