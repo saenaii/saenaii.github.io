@@ -1,10 +1,9 @@
 package main
 
 import (
-	"encoding/json"
-	"encoding/csv"
-	"fmt"
 	"bufio"
+	"encoding/csv"
+	"encoding/json"
 	"log"
 	"os"
 	"sort"
@@ -79,7 +78,7 @@ func parseCSV(input string) books {
 
 		sortKey := time.Time{}
 		if status == statusDoing {
-			sortKey = time.Now().Add(time.Hour*24*365)
+			sortKey = time.Now().Add(time.Hour * 24 * 365)
 		}
 
 		if date, err := time.Parse(timeLayout, endDate); err == nil {
@@ -87,12 +86,12 @@ func parseCSV(input string) books {
 		}
 
 		list = append(list, book{
-			Name: name,
-			ISBN: isbn,
+			Name:      name,
+			ISBN:      isbn,
 			StartDate: startDate,
-			EndDate: endDate,
-			Status: status,
-			sortKey: sortKey,
+			EndDate:   endDate,
+			Status:    status,
+			sortKey:   sortKey,
 		})
 	}
 	return list

@@ -1,6 +1,6 @@
 ---
 title: Reading List
-date: 2023-06-07
+date: 2023-06-25
 tags:
 	- books
 categories: 
