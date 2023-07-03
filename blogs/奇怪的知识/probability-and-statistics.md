@@ -19,7 +19,7 @@ categories:
 
 * 随机试验的所有可能结果构成的集合称为样本空间，记为 $S=\{e\}$, S 中的元素 e 称为**样本点**。
   * 抛硬币
-    * $S=\{正面，反面\}$
+    * $S=\{$正面，反面$\}$
   * 记录产品的使用寿命 
     * $S=\{x: x \geq 10\}$ 
   * 记录某一地一昼夜的最高温度 x, 最低温度 y 
@@ -39,7 +39,7 @@ categories:
   * A 与 B 同时发生。
 * 当 $AB=\phi$ 时，称事件 A 与 B 不相容或互斥。
 * A 与 B 的差事件
-  * $A-B=\{x | x \in A 且 x \notin B\}$
+  * $A-B=\{x | x \in A $且$ x \notin B\}$
   * $A-B = A \bar B = A \cup B-B = A-AB$
 * A 的逆事件，记为 $\bar A$，也称 A 的 互逆，对立事件。
 
@@ -114,8 +114,8 @@ $f_n(A)= \dfrac{n_A}{n}$
 
 ::: tip
 一袋中有 5 个球，其中 3 个为白球，2 个为黄球，设取到每一球的可能性相等。
-1. 从袋中随机取出一球，记 $A={取到白球}$，求 P(A)
-2. 从袋中不放回取两球，记 $B={两个都是白球}$，球 P(B)
+1. 从袋中随机取出一球，记 $A=\{$取到白球$\}$，求 P(A)
+2. 从袋中不放回取两球，记 $B=\{$两个都是白球$\}$，球 P(B)
 
 将球编号，白球为 1，2，3，黄球为 4，5
 1. $S=\{1,2,3,4,5\}, A=\{1,2,3\} \Rightarrow P(A)=\dfrac{3}{5}$
@@ -187,7 +187,7 @@ $P(\bar A|A\cup B)=1-P(A|A\cup B)=1-\dfrac{P(A \cdot A\cup B)}{P(A\cup B)}=1-\df
 2. 求父亲参加的概率。
 3. 在已知父亲参加的条件下，求母亲参加的概率。
 
-设 $A=\{母亲参加\}$，$B=\{父亲参加\}$。则 $P(A)=0.8, P(B|A) = 0.3, P(B|\bar A)=0.9$
+设 $A=\{$母亲参加$\}$，$B=\{$父亲参加$\}$。则 $P(A)=0.8, P(B|A) = 0.3, P(B|\bar A)=0.9$
 1. $P(AB) = P(A)P(B|A)=0.24$
 2. 由全概率公式：$P(B) = P(A)P(B|A) + P(\bar A)P(B|\bar A) = 0.24+0.18 = 0.42$
 3. $P(A|B) = \frac{P(AB)}{P(B)} = 4/7$
@@ -459,3 +459,37 @@ x/3, & 0\leq x < 3\\
 :::
 
 ## 连续型随机变量及其概率密度
+定义：对于随机变量$X$的分布函数$F(x)$，若存在非负的函数$f(x)$, 使对于任意实数$x$有：$$F(X)=\int_{-\infty}^{x}f(t)dt$$则称$X$为**连续型随机变量**，其中$f(x)$称为$X$的**概率密度函数**，简称**概率密度**。有时也写为$f_X(x)$
+
+性质
+1. $f(x)\geq0$
+2. $\int_{-\infty}^{+\infty}f(x)dx=1$
+3. 对于任意的实数$x_1$, $x_2(x_1<x_2)$, 有$P(x_1<X\leq x_2)=\int_{x_1}^{x_2}f(t)dt$
+   * 对任意实数 $a, P(X=a)=0$且$P(x_1 < X \leq x_2)=P(x_1<X<x_2)$ 
+   * 对于连续型随机变量$X$, 有$P(X\in D)=\int_Df(x)dx$, 任意$D\sub R$
+4. 在$f(x)$连续点$x$, $F'(x)=f(x)$，即在$f(x)$的连续点，$$f(x)=F'(x)=\lim_{\Delta x\rightarrow0}\frac{F(x+\Delta x)-F(x)}{\Delta x}=\lim_{\Delta \rightarrow 0}\frac{P(x<X\leq x+\Delta x)}{\Delta x}$$ $P(x<X\leq x+\Delta x)\approx f(x)\cdot \Delta x$, 这表示$X$落在点$x$附近$(x, x+ \Delta x]$的概率近似等于$f(x)\Delta x$
+
+说明
+1. $f(x)$值的含义: 当$\Delta x$充分小时，$P(x<X\leq x+\Delta x)\approx f(x)\cdot \Delta x$
+2. $f(x)$的值是可以大于 1 的。
+3. $$f(x)\xLeftrightarrow[\frac{d}{dx}]{\int_{-\infty}^{x}f(t)dt}F(x)$$
+
+:::tip
+设$X$的概率密度为$$f(x)=\begin{cases}
+cx+1/6, & 0<x<2;\\
+0, & other
+\end{cases}$$
+求
+1. 常数$c$的值。
+2. $X$的概率分布函数$F(x)$
+3. $P(-1<X<1)$的值
+
+解：
+1. $$\begin{align*}\int_{-\infty}^{+\infty}f(x)dx &=\int_{-\infty}^{0}f(x)dx+\int_{0}^{2}f(x)dx+\int_{2}^{+\infty}f(x)dx\\
+   &= \int_{-\infty}^{0}0dx+\int_{0}^{2}(cx+\frac{1}{6})+\int_{2}^{+\infty}0dx\\
+   &= \int_{0}^{2}(cx+\frac{1}{6})dx=(\frac{c}{2}x^2+\frac{1}{6}x) \mid_{0}^{2} \\
+   &= \frac{c}{2}\times 2^2+\frac{1}{6}\times 2 \Rightarrow c=\frac{1}{3}
+   \end{align*}$$
+2. $F(x)=P\{X\leq x\}=\int_{-\infty}^{x}f(t)dt$, 注意到$P\{x\in (0,2)\}=1$
+   1. 当$x<0$时，$F(x)=P\{X\leq x\}=\int_{-\infty}^{x}0dt=0$ 
+:::
