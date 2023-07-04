@@ -207,7 +207,8 @@ $P(\bar A|A\cup B)=1-P(A|A\cup B)=1-\dfrac{P(A \cdot A\cup B)}{P(A\cup B)}=1-\df
 > 设 A,B 是两个随机事件，如果 $P(AB)=P(A)P(B)$, 则称 A，B 相互独立。
 
 直观来说，若 A 与 B 相互独立，则不论 A 是否发生，都不能提供 B 是否发生的信息，反之也是，这就有下面的性质
-$$A,B 相互独立 \Leftrightarrow \bar A,B 相互独立 \Leftrightarrow A,\bar B 相互独立 \Leftrightarrow \bar A,\bar B 相互独立$$
+
+A,B 相互独立 $\Leftrightarrow \bar A,B$ 相互独立 $\Leftrightarrow A,\bar B$ 相互独立 $\Leftrightarrow \bar A,\bar B$ 相互独立
 
 > 定义：设 $A_{1},A_{2},..A_{n}$ 为 n 个随机事件，若对 $2 \leq k \leq n$，均有 $$P(A_{i1}A_{i2}...A_{ik})=\prod_{j=1}^{k}P(A_{ij})$$
 则称$A_{1},A_{2},...,A_{n}$相互独立
@@ -231,7 +232,7 @@ $P(A)=0.5, P(B)=0.4$, 求下列情况下$P(A\cup B)$
 
 1. 随机变量$X(e):S\rightarrow R$为一映射，其自变量具有随机性。
 2. 随机事件可以表示为 $A=\{e:X(e)\in I\}=\{X\in I\}, I \sub R$
-     * 比如：将一枚均匀的硬币抛掷 3 次，样本空间为$$S=\{正正正，正正反，正反正，正反反，反正正，反正反，反反正，反反反\}$$
+     * 比如：将一枚均匀的硬币抛掷 3 次，样本空间为<br>$S=\{$正正正，正正反，正反正，正反反，反正正，反正反，反反正，反反反$\}$
 若 X 表示 3 次中出现正面的次数，则
        * 随机事件 $A=\{$正面出现了一次$\}=\{$正反反，反正反，反反正$\}=\{e:X(e)=1\}=\{X=1\}$
        * 随机事件 $B=\{$3次出现的情况相同$\}=\{$正正正，反反反$\}=\{X=0或3\}$
@@ -306,7 +307,7 @@ $P(X=3)=P(\bar A_{1}\bar A_{2} A_{3})=(5/6)^2 \cdot 1/6$
 
 #### 0-1 分布的应用
 > 对于一个随机试验，若它的样本空间只包含两个元素，即$S=\{e_1,e_2\}$，我们总能在 S 上定义一个服从 0-1 分布的随机变量
-> $$X=\begin{cases}0, 当 e=e_1;\\ 1, 当 e=e_2; \end{cases}$$ 来描述这个实验结果
+> $$X=\begin{cases}0, e=e_1;\\ 1, e=e_2; \end{cases}$$ 来描述这个实验结果
 
 > 一个随机试验，设 A 是一个随机事件，且$P(A)=p(0<p<1)$。若仅考虑事件 A 发生与否，就可以定义一个服从参数为 p 的 0-1 分布的随机变量
 > $$X=\begin{cases}1, 若 A 发生;\\ 0, 若 A 不发生(即\bar A 发生); \end{cases}$$ 来描述这个实验结果
@@ -331,7 +332,7 @@ $P(X=3)=P(\bar A_{1}\bar A_{2} A_{3})=(5/6)^2 \cdot 1/6$
 * 检查种子是否发芽。
 * 考试是否通过。
 
-设试验 E 只有两个可能的结果：$A 或 \bar A, 且P(A)=p, 0<p<1$。将 E **独立重复**进行 n 次，则称这一串重复的独立试验为 **n 重伯努利试验**。
+设试验 E 只有两个可能的结果：$A$ 或 $\bar A$, 且$P(A)=p, 0<p<1$。将 E **独立重复**进行 n 次，则称这一串重复的独立试验为 **n 重伯努利试验**。
 
 ### 二项分布
 若 X 的概率分布律为 $$P\{X=k\}=C_n^kp^k(1-p)^{n-k}, k=0,1,..,n$$ 其中 $n\leq 1, 0<p<1$, 就称 X 服从参数为 $n,p$的二项分布，**记为 $X\sim B(n,p)$**
@@ -492,4 +493,41 @@ cx+1/6, & 0<x<2;\\
    \end{align*}$$
 2. $F(x)=P\{X\leq x\}=\int_{-\infty}^{x}f(t)dt$, 注意到$P\{x\in (0,2)\}=1$
    1. 当$x<0$时，$F(x)=P\{X\leq x\}=\int_{-\infty}^{x}0dt=0$ 
+   2. 当$x\leq 2$时，$(0,2)\sub (-\infty, x]$, 故$F(x)=P\{X\leq x\}=1$
+   3. 当$0\leq x < 2$时，$$\begin{align*}F(x)=P\{X\leq x\} &=\int_{-\infty}^{x}f(t)dt=\int_{-\infty}^{0}f(t)dt+\int_{0}^{x}f(t)dt=\int_{-\infty}^{0}0dt+\int_{0}^{x}(\frac{t}{3}+\frac{1}{6})dt\\
+   &=(\frac{t^2}{6}+\frac{t}{6})|_{0}^{x}=\frac{x^2}{6}+\frac{x}{6}
+   \end{align*}$$
+   即 $$F(x)=\begin{cases}0,& x<0;\\
+   \frac{x^2}{6}+\frac{x}{6},& x\leq x<2;\\
+   1, & x\geq 2.
+   \end{cases}$$
+3. $$\begin{align*}P(-1<X<1)&=\int_{-1}^{1}f(x)dx=\int_{-1}^{0}f(x)dx+\int_{0}^{1}f(x)dx=\int_{-1}^{0}0dx+\int_0^1(\frac{x}{3}+\frac{1}{6}dx)\\
+  &=0+(\frac{x^2}{6}+\frac{x}{6})|_0^1=\frac{1}{3}
+  \end{align*}$$
+  或 $P(-1<X<1)=F(1)-F(-1)=\frac{1^2}{6}+\frac{1}{6}-0=\frac{1}{3}$
 :::
+
+## 均匀分布与指数分布
+### 均匀分布
+若$X$的概率密度函数为$$f(x)=\begin{cases}\frac{1}{b-a},& x\in (a, b); \\
+0,& other
+\end{cases}$$
+其中$a<b$, 就称$X$服从$(a, b)$上的**均匀分布(Uniform)**, 记为$X\sim U(a,b)$或$X\sim Unif(a,b)$
+
+其实 $$f(x)=\begin{cases}c,& x\in(a,b)\\
+0,& other
+\end{cases}$$
+
+$\because \int_{-\infty}^{+\infty}f(x)dx=1$ 即 $\int_a^bcdx=1$
+
+均匀分布具有等可能性。
+* 对任意的$a<k<k+l<b$, 均有$P(k<X<k+l)=\int_k^{k+l}\frac{1}{b-a}dt=\frac{l}{b-a}\Rightarrow$ 与$k$无关，仅与$l$有关。
+* 服从$U(a, b)$上的均匀分布的随机变量$X$落入$(a,b)$中的任意子区间上的概率只与其长度有关，与区间所处的位置无关。
+* $X$落入$(a,b)$中的**等长度**的任意子区间上时**等可能**的。
+
+若$X\sim U(a,b)$, 则$P(a<X<b)=1$, 且分布函数为$$F(x)=\begin{cases}
+0,& x<a;\\
+\frac{x-a}{b-a},& a\leq x<b;\\
+1,& x\geq b.
+\end{cases}$$
+$\because$当$a\leq x <b$时，$F(x)=\int_{-\infty}^xf(t)dt=\int_a^x\frac{1}{b-a}dt=\frac{x-a}{b-a}$
