@@ -1,6 +1,6 @@
 ---
 title: Reading List
-date: 2023-07-06
+date: 2023-07-10
 tags:
 	- books
 categories: 
@@ -12,7 +12,7 @@ categories:
 | Name | ISBN | Start Date | End Date | Status |
 | --- | --- | --- | --- | --- |
 | 非暴力沟通（修订版） | 9787522200514 | 2023-07-01|  | Doing |
-| 匠艺整洁之道 程序员的职业修养 | 9787121432248 | 2022-07-18|  | Doing |
+| 匠艺整洁之道 程序员的职业修养 | 9787121432248 | 2023-07-07|  | Doing |
 
 ## 2023
 
