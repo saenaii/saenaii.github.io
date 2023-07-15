@@ -39,7 +39,7 @@ categories:
   * A 与 B 同时发生。
 * 当 $AB=\phi$ 时，称事件 A 与 B 不相容或互斥。
 * A 与 B 的差事件
-  * $A-B=\{x | x \in A $且$ x \notin B\}$
+  * $A-B=\{x | x \in A$ 且 $x \notin B\}$
   * $A-B = A \bar B = A \cup B-B = A-AB$
 * A 的逆事件，记为 $\bar A$，也称 A 的 互逆，对立事件。
 
@@ -622,3 +622,48 @@ $P(X>13+2|X>13)=P(X>2)=1-F(2)=e^{-\frac{2}{13}\cdot 2}=e^{-\frac{4}{13}}$
 2. 使用数值积分法。
 3. 转换为标准正态分布，然后利用标准正态分布表来求。
 
+### 标准正态分布
+若$Z\sim N(0,1)$，称$Z$服从标准正态分布
+
+* $Z$ 的概率密度函数 $\varphi (z)=\frac{1}{\sqrt{2\pi}}e^{-\frac{z^2}{2}}$
+* $Z$ 的分布函数 $\Phi=\int_{-\infty}^z\frac{1}{\sqrt{2\pi}}e^{-\frac{t^2}{2}}dt$
+
+标准正态分布函数表($\Phi(z)$的值) 可以从网上找到。
+
+注意到 $\varphi (z)=\frac{1}{\sqrt{2\pi}}e^{-\frac{z^2}{2}}$ 关于 $y$ 轴对称，则标准正态分布的分布函数有一个重要性质
+$$\Phi (-z_0)=1-\Phi (z_0)$$ 对任意实数 $z_0$ 都成立。
+
+> 性质：当 $X\sim N(\mu,\sigma^2)$ 时，$\frac{X-\mu}{\sigma}\sim N(0,1)$
+> 证明：对任意实数 $z$, $$P(\frac{X-\mu}{\sigma}\leq z)=P(X\leq \sigma z+\mu)=\int_{-\infty}^{\sigma z+\mu}\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(t-\mu)^2}{2\sigma^2}}dt$$
+> 令 $s=\frac{t-\mu}{\sigma}$
+> 则 $\int_{-\infty}^{\sigma z+\mu}\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(t-\mu)^2}{2\sigma^2}}dt=\int_{-\infty}^{z}\frac{1}{\sqrt{2\pi}}e^{-\frac{s^2}{2}}ds=\Phi (z)$
+> 
+> 由此可知，当 $X\sim N(0,1)$ 时，对于任意实数 $a$, 有
+> $$F_x(a)=P(X\leq a)=P(\frac{X-\mu}{\sigma}\leq \frac{a-\mu}{\sigma})=\Phi(\frac{a-\mu}{\sigma})$$
+
+:::tip
+一批钢材(线材)长度(cm)$X\sim N(\mu,\sigma^2), \mu=100,\sigma=2$<br>
+求
+1. 这批钢材长度小于 97.8 的概率
+2. 这批钢材长度落在区间 $(97.8,103)$ 的概率
+
+解
+1. $$\begin{align*}P(X<97.8)&=P(\frac{X-\mu}{\sigma}<\frac{97.8-\mu}{\sigma})=\Phi(\frac{97.8-\mu}{\sigma})=\Phi(\frac{97.8-100}{2})\\
+&=\Phi(-1.1)=1-\Phi(1.1)=0.13567
+\end{align*}$$
+2. $$\begin{align*}P(97.8<X<103)&=P(\frac{97.8-\mu}{\sigma}<\frac{X-\mu}{\sigma}<\frac{103-\mu}{\sigma})=\Phi(\frac{103-100}{2})-\Phi(\frac{97.8-100}{2})\\
+&=\Phi(1.5)-\Phi(-1.1)=0.79743
+\end{align*}$$
+:::
+
+:::tip
+用天平称一实际重量为$\mu$的物体，天平的读数记为随机变量$X$，若$X\sim N(\mu,\sigma^2)$, 求读数与$\mu$的偏差在 $3\sigma$范围之内的概率。
+
+解：由题意知，要求的是
+$$\begin{align*}
+P(|X-\mu|<3\sigma)&=P(-3\sigma<X-\mu<3\sigma)=P(-\frac{3\sigma}{\sigma}<\frac{X-\mu}{\sigma}<\frac{3\sigma}{\sigma})=P(-3<\frac{X-\mu}{\sigma}<3)\\
+&=\Phi(3)-\Phi(-3)=\Phi(3)-(1-\Phi(3))=2\Phi(3)-1=0.9973
+\end{align*}$$
+:::
+
+这说明对于正态分布而言，绝大多数的可能性都落在 $3\sigma$ 之内，这也就是一般说的 $3\sigma$ 准则。
