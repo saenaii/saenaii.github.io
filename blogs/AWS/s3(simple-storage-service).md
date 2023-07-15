@@ -21,7 +21,7 @@ S3 provides you with **unlimited storage**. You don't need to think about the un
 
 Objects contains your data. They are like files.
 
-Object may consis of:
+Object may consist of:
 
 * **Key** this is the name of the object
 * **Value** the data itself made up of a sequence of bytes.
@@ -30,7 +30,7 @@ Object may consis of:
 
 > You can store data from **0 Byte** to 5 Terabytes in size
 
-## S3 Bucke
+## S3 Bucket
 
 Buckets hold objects, Buckets can also have folders which is turn hold objects.
 
@@ -48,17 +48,18 @@ S3 is a universal namespace so bucket names must be unique(think like having a d
 * Standard Infrequently Access(IA)
   * Still Fast
   * Cheaper if you access files less than once a month
-  * Additional retrieval free is applied **50% less** than Standard(reduced availability)
+  * Additional retrieval free is applied
+  * **50% less** than Standard(reduced availability)
 * One Zone IA
   * Still Fast
   * Object only exist in one AZ
   * Avaliability(is 99.95%), but cheaper that Standard IA by 20% less(Reduce durability)
   * Because S3 One Zone-IA stores data in a single AWS Availability Zone, data stored in this storage class will be lost in the event of Availability Zone destruction.
   * A retrieval free is applied.
-* Clacier
+* Glacier
   * For long-trem cold storage
   * Retrieval of data can take minutes to hours but the off is very cheap storage
-* Clacier Deep Archive
+* Glacier Deep Archive
   * The lowest cost storage class
   * Data retrieval time is 12 hours
 
