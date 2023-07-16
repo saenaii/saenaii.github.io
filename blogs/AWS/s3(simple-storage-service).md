@@ -165,3 +165,42 @@ MFA Delete can only be enabled under these conditions
 1. The AWS CLI must be used to turn on MFA.
 2. The bucket must have versioning turned on.
 3. Only the bucket owner logged in as Root User can DELETE objects from bucket.
+
+## [S3 CLI Sample](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/index.html)
+|Desc|Sample|
+|---|---|
+|List all buckets|`aws s3 ls`|
+|List all folders and objects in bucket|`aws s3 ls s3://xxx`|
+|List all folders and objects in folder|`aws s3 ls s3://xxx/folder`|
+|Download object to my desktop|`aws s3 cp s3://xxx/a.jpg ~/Desktop/a.jpg`|
+|Upload objects to my s3 bucket|`aws s3 cp ~/Download/a.jpg s3://xxx/a.jpg`|
+|Create presigned URL that expires in 300s|`aws s3 presign s3://xxx --expires-in 300`|
+
+## CheatSheet
+* **Simple Storage Sercice(S3)** Object-based object. Storage unlimited amount of data without of underlying storage infrastrucute
+* S3 replicates data across at least 3 AZs to ensure 99.99% Availability and 11'9s of durability
+* Objects contains your data(they're like files)
+* Objects can be size anywhere from **0 Bytes** up tp 5 Terabytes
+* Bucket contain object. Buckets can also contain folders which can in turn can contain objects.
+* Bucket names are unique across all AWS accounts. Like a domain name.
+* When you upload a file to S3 successfully, you'll receive a HTTP 200 code.
+* **Lifecycle Management** Objects can be moved between storage classes or objects can be deleteed automatically based on a schedule.
+* **Versioning** Objects are giving a Version ID. 
+  * When new objects are uploaded, the old objects are kept. 
+  * You can access any object version. 
+  * When you delete an object the previous object is restored. 
+  * Once Versioning is turned on, it cannot be turn off, only suspended.
+* **MFA Delete** enforce DELETE operations to require MFA token in order to delete an object. 
+  * Must have versioning turned on to use. 
+  * Can only turn on MFA Delete from the AWS CLI.
+  * Root Account is only allowed to delete objects
+* All new buckets are **private by default**
+* Logging can be turned to on a bucket to log to track operations performed on object
+* **Access control** is configured using **Bucket Policies** and **Access Control Lists(ACL)**
+* **Bucket Policies** are JSON documents which let you write complex control access.
+* **ACLs** are the legacy method(not deprecated) where you grant access to objects and buckets with simple actions. 
+* **Security in Transit** Uploading file is done over SSL
+* **SSE** stands for Server Side Encryption. S3 has 3 options for SSE
+  * **SSE-AES** S3 handles the key, uses AWS-256 algorithm.
+  * **SSE-KMS** Envelope encryption via AWS KMS and you manage the keys
+  * **SSC-C** Customer provided key(you manage the keys)
