@@ -47,7 +47,6 @@ AWS has a default VPC in every region so you can immediately deploy instances.
 
 ![](../../asset/images/aws/vpc_peering.png)
 
-**VPC Peering** allows you to connect one VPC with another over a **direct network route** using **private IP addresses**
 * Instances on peered VPCs **behave** just like they are on the **same network**
 * Connect VPCs across **same** or **different AWS accounts** and **regions**
 * Peering uses a **Star Configuration: 1 Central VPC-4 other VPCs**
@@ -59,9 +58,6 @@ AWS has a default VPC in every region so you can immediately deploy instances.
 ## Route Tables
 
 ![](../../asset/images/aws/route_tables.png)
-Route tables are used to determine where **network traffic is** directed. Each **subnet** in your VPC **must be associated** with a route table.
-
-A subnet can only be associated **with one route table at a time**, but you can associate multiple subnets with the same route table.
 
 ## Internet Gateway(IGW)
 

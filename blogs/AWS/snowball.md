@@ -7,8 +7,7 @@ categories:
 	- aws
 ---
 
-## Introduction
-> https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snowcone-what-is-snowcone.html
+## [Introduction](https://docs.aws.amazon.com/snowball/latest/snowcone-guide/snowcone-what-is-snowcone.html)
 
 * **Low Cost** 
   * It cost thousands of dollars to transfer 100TB over high speed internet. Snowball can reduce that costs by **1/5th**
