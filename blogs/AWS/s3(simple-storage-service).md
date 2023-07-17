@@ -204,3 +204,9 @@ MFA Delete can only be enabled under these conditions
   * **SSE-AES** S3 handles the key, uses AWS-256 algorithm.
   * **SSE-KMS** Envelope encryption via AWS KMS and you manage the keys
   * **SSC-C** Customer provided key(you manage the keys)
+  * **Client-Side Encryption** You must encrypt your own files before uploading them to S3
+* **Cross Region Replication(CRR)** allows you to replicate files across regions for greater durability.
+  * You must have versioning turned on in this source and destination bucket.
+  * You can have CRR replicate to bucket in another AWS Account.
+* **Transfer Acceleration** provide faster and secure uploads from anywhere in the world. Data is uploaded via distinct URL to an Edge Location. Data is then transported to your S3 bucket via AWS backbon network.
+* **Presigned URLs** is a URL generated via AWS CLI and SDK. It provide temporary access to write or download object data. Presigned URLs are commonly used to access private objects.
