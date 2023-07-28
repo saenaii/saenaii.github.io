@@ -118,7 +118,7 @@ Access services hosted on AWS easily and securely by keeping your network traffi
 
 VPC Gateway Endpoints are Free
 
-A **Gateway Endpoint** is a gateway that is a target **for a specific route** in your **route table**, used for traffic desined for a supported AWS service.
+A **Gateway Endpoint** is a gateway that is a target **for a specific route** in your **route table**, used for traffic designed for a supported AWS service.
 
 To create a Gateway Endpoint, you must specify the VPC in which you want to create the endpoint, and the service to which you want to establish the connection.
 
