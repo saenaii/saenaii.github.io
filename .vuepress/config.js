@@ -60,6 +60,12 @@ module.exports = {
     "startYear": "2023",
     "noFoundPageByTencent": false,
     "sidebar": 'auto',
+    "keyPage": {
+      'keys': ['2276e0eae8f163728becc1e0ba73f545'],
+      'color': '#42b983', 
+      'lineColor': '#42b983',
+      'absoluteSecrecy': true
+    }
   },
   "markdown": {
     "lineNumbers": true,
