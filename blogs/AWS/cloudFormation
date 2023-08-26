@@ -41,4 +41,3 @@ We can use their **inputs** and use an AWS Lambda to create a new CloudFormation
 * **Mappings** maps keys to values, just like a lookup table.
 * **Resources** defines the resources you want to provision, **at least one resource is required**(others are optional).
 * **Conditions** are whether resources are created or properties are assigned.
-
