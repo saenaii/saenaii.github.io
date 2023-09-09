@@ -6,6 +6,8 @@ set -e
 # go run gen-reading-list.go
 # cd -
 
+export NODE_OPTIONS=--openssl-legacy-provider
+
 yarn run build
 
 cd public
