@@ -34,7 +34,7 @@ const (
 const (
 	tableTitle = "| Name | ISBN | Start Date | End Date | Status |"
 	delimit    = "| --- | --- | --- | --- | --- |"
-	rowLayout  = "| {{name}} | {{isbn}} | {{startDate}}| {{endDate}} | {{status}} |"
+	rowLayout  = "| {{name}} | `{{isbn}}` | {{startDate}}| {{endDate}} | {{status}} |"
 
 	content = `---
 title: Reading List

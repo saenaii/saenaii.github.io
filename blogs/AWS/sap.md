@@ -40,6 +40,8 @@ categories:
 * [NLB (Network Load Balancer)](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html)
 
 ### [API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html)
+  * REST API
+  * HTTP API
 
 ### [CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html)
 * [Adding, removing or replacing content](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AddRemoveReplaceObjects.html)
