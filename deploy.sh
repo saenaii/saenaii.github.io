@@ -3,7 +3,7 @@
 set -e
 
 # cd scripts
-# go run gen-reading-list.go
+# go run main.go
 # cd -
 
 export NODE_OPTIONS=--openssl-legacy-provider

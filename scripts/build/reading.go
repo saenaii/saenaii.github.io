@@ -1,11 +1,6 @@
-package main
+package build
 
 import (
-	"bufio"
-	"encoding/csv"
-	"encoding/json"
-	"log"
-	"os"
 	"sort"
 	"strconv"
 	"strings"
@@ -21,7 +16,7 @@ type book struct {
 	Status    string `json:"status"`
 }
 
-type books []book
+type Books []book
 
 const (
 	filename   = "../blogs/reading/reading-list.md"
@@ -47,26 +42,14 @@ categories:
 `
 )
 
-func main() {
-	list := parseCSV(source)
-
-	data := render(list)
-	save(data)
+func (b Books) Gen() {
+	list := buildBooks(source)
+	data := renderBook(list)
+	save(data, filename)
 }
 
-func parseCSV(input string) books {
-	f, err := os.Open(input)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer f.Close()
-
-	reader := csv.NewReader(bufio.NewReader(f))
-
-	data, err := reader.ReadAll()
-	if err != nil {
-		log.Fatal(err)
-	}
+func buildBooks(input string) Books {
+	data := parseCSV(input)
 
 	list := make([]book, 0, len(data))
 	for i, item := range data {
@@ -97,37 +80,7 @@ func parseCSV(input string) books {
 	return list
 }
 
-func parseJSON(input string) books {
-	b, err := os.ReadFile(input)
-	if err != nil {
-		log.Fatalf("open source file failed: %v", err)
-	}
-
-	var list books
-	if err := json.Unmarshal(b, &list); err != nil {
-		log.Fatalf("unmarshal JSON failed: %v\n", err)
-	}
-
-	for i, item := range list {
-		if item.Status == statusDoing {
-			// set a future time ensure the Doing list on the top
-			list[i].sortKey = time.Now().Add(time.Hour * 24 * 365)
-			continue
-		}
-
-		date, err := time.Parse(timeLayout, item.EndDate)
-		if err != nil {
-			log.Printf("parse time error: %s", item.EndDate)
-			continue
-		}
-
-		list[i].sortKey = date
-	}
-
-	return list
-}
-
-func render(list books) string {
+func renderBook(list Books) string {
 	var builder strings.Builder
 
 	builder.WriteString(strings.Replace(content, "{{date}}", time.Now().Format(timeLayout), -1))
@@ -164,20 +117,14 @@ func buildTitle(item book) string {
 	return "\n## " + strconv.Itoa(item.sortKey.Year()) + "\n\n"
 }
 
-func save(data string) {
-	if err := os.WriteFile(filename, []byte(data), 0666); err != nil {
-		log.Fatalf("save file failed: %v", err)
-	}
-}
-
-func (b books) Len() int {
+func (b Books) Len() int {
 	return len(b)
 }
 
-func (b books) Swap(i, j int) {
+func (b Books) Swap(i, j int) {
 	b[i], b[j] = b[j], b[i]
 }
 
-func (b books) Less(i, j int) bool {
+func (b Books) Less(i, j int) bool {
 	return b[i].sortKey.After(b[j].sortKey)
 }
