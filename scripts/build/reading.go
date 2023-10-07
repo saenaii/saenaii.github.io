@@ -27,9 +27,9 @@ const (
 )
 
 const (
-	tableTitle = "| Name | ISBN | Start Date | End Date | Status |"
-	delimit    = "| --- | --- | --- | --- | --- |"
-	rowLayout  = "| {{name}} | `{{isbn}}` | {{startDate}}| {{endDate}} | {{status}} |"
+	tableTitle = "| # | Name | ISBN | Start Date | End Date | Status |"
+	delimit    = "| --- | --- | --- | --- | --- | --- |"
+	rowLayout  = "| {{#}} | {{name}} | `{{isbn}}` | {{startDate}}| {{endDate}} | {{status}} |"
 
 	content = `---
 title: Reading List
@@ -91,18 +91,23 @@ func renderBook(list Books) string {
 
 	sort.Sort(list)
 
+	order := 1
 	for i, item := range list {
 		if i == 0 || list[i].sortKey.Year() != list[i-1].sortKey.Year() {
 			builder.WriteString(buildTitle(item))
 			builder.WriteString(tableTitle + "\n")
 			builder.WriteString(delimit + "\n")
+			order = 1
 		}
 
 		row := strings.Replace(rowLayout, "{{name}}", item.Name, -1)
+		row = strings.Replace(row, "{{#}}", strconv.Itoa(order), -1)
 		row = strings.Replace(row, "{{isbn}}", item.ISBN, -1)
 		row = strings.Replace(row, "{{startDate}}", item.StartDate, -1)
 		row = strings.Replace(row, "{{endDate}}", item.EndDate, -1)
 		row = strings.Replace(row, "{{status}}", item.Status, -1)
+
+		order++
 
 		builder.WriteString(row + "\n")
 	}
