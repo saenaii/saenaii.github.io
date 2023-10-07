@@ -1,6 +1,6 @@
 ---
 title: AWS
-date: 2023-09-30
+date: 2023-10-07
 tags:
 	- aws
 categories: 
